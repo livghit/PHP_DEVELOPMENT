@@ -19,10 +19,10 @@ export default function Welcome(props) {
             )
             : (
               <>
-              <div className="flex h-full w-full md:flex-row bg-indigo-400 p-5">
-              <DefaultNavigation />
-              <MobileNavigation />
-              </div>
+                <div className="flex h-full w-full md:flex-row bg-indigo-400 p-10 md:p-5">
+                  <DefaultNavigation />
+                  <MobileNavigation />
+                </div>
               </>
             )}
         </div>
@@ -43,7 +43,7 @@ export default function Welcome(props) {
               </g>
             </svg>
             <p className="text-balck dark:text-white font-extrabold text-2xl p-6 ml-10 justify-center md:justify-start md:ml-auto">
-             an Ecomerce Site 
+              an Ecomerce Site
             </p>
           </div>
         </div>

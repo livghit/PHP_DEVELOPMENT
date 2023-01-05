@@ -1,16 +1,90 @@
-import React from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 
 export default function MobileNavigation() {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
     <>
-      <div className="md:hidden ">
-        <MenuIcon style="w-10 h-10" />
-      </div>
       <div className="fixed right-5 top-6 md:top-3 ">
         <CartIcon style="w-8 h-8" />
       </div>
       <div className="fixed right-16 top-6 md:top-3">
         <HeartIcon style="w-8 h-8" />
+      </div>
+
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="fixed left-5 top-5">
+          <button
+            type="button"
+            onClick={openModal}
+            className="md:hidden cursor-pointer rounded-md bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          >
+            <MenuIcon style="w-10 h-10" />
+          </button>
+        </div>
+        <Transition appear show={isOpen} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={closeModal}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Title
+                      as="h3"
+                      className="mt-10 text-lg font-medium leading-6 text-gray-900"
+                    >
+                      Payment successful
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Your payment has been successfully submitted. We’ve sent
+                        you an email with all of the details of your order.
+                      </p>
+                    </div>
+
+                    <div className="fixed top-0 right-0 m-4">
+                      <button
+                        type="button"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        onClick={closeModal}
+                      >
+                        X
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
       </div>
     </>
   );
@@ -27,7 +101,7 @@ function MenuIcon(props) {
         viewBox="0 0 20 20"
         fill="currentColor"
       >
-          <path
+        <path
           fill-rule="evenodd"
           d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
           clip-rule="evenodd"
@@ -44,7 +118,7 @@ function CartIcon(props) {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class= {style}
+        class={style}
         viewBox="0 0 20 20"
         fill="currentColor"
       >
