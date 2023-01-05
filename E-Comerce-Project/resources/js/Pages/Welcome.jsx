@@ -7,7 +7,7 @@ export default function Welcome(props) {
     <>
       <Head title="Welcome" />
       <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-        <div className="fixed top-0 justify-between px-6 py-4 sm:block">
+        <div className="fixed top-0 right-0 left-0 justify-between">
           {props.auth.user
             ? (
               <Link
@@ -19,7 +19,7 @@ export default function Welcome(props) {
             )
             : (
               <>
-              <div className="flex gap-20 md:flex-row fixed top-5 left-5">
+              <div className="flex h-full w-full md:flex-row bg-indigo-400 p-5">
               <DefaultNavigation />
               <MobileNavigation />
               </div>
