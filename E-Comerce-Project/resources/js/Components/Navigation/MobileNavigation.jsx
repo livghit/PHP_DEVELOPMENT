@@ -12,22 +12,41 @@ export default function MobileNavigation() {
     setIsOpen(true);
   }
 
+  function openCart() {
+    console.log("Opening Cart");
+  }
+
+  function openMarked() {
+    console.log("Opening Marked Items");
+  }
+
   return (
     <>
-      <div className="fixed right-5 top-6 md:top-3 ">
-        <CartIcon style="w-8 h-8" />
-      </div>
-      <div className="fixed right-16 top-6 md:top-3">
-        <HeartIcon style="w-8 h-8" />
-      </div>
+      <button
+        aria-label="Shopping Cart Toggler"
+        type="button"
+        className="fixed right-5 top-6 md:top-3 cursor-pointer rounded-md text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        onClick={openCart}
+      >
+        <CartIcon style="w-8 h-9" />
+      </button>
 
-      <div className="fixed inset-0 flex items-center justify-center">
+      <button
+        type="button"
+        aria-label="Heart Marked Toggler"
+        className="fixed right-16 top-6 md:top-3 cursor-pointer rounded-md text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        onClick={openMarked}
+      >
+        <HeartIcon style="w-8 h-8" />
+      </button>
+
+      <div className="flex items-center justify-center">
         <div className="fixed left-5 top-5">
           <button
             aria-label="Menu Toggler"
             type="button"
             onClick={openModal}
-            className="md:hidden cursor-pointer rounded-md bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="md:hidden cursor-pointer rounded-md  text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             <MenuIcon style="w-10 h-10" />
           </button>
@@ -67,16 +86,16 @@ export default function MobileNavigation() {
                     <div className="mt-52">
                       <ul className="text-3xl bold text-gray-500">
                         <li className="hover:underline focus:font-bold">
-                          <a href="/ohrringe">Ohrringe</a>
+                          <a href="ohrringe">Ohrringe</a>
                         </li>
                         <li className="hover:underline">
-                          <a href="/ringe">Ringe</a>
+                          <a href="ringe">Ringe</a>
                         </li>
                         <li className="hover:underline">
-                          <a href="/armbaender">Armbaender</a>
+                          <a href="armbaender">Armbaender</a>
                         </li>
                         <li className="hover:underline">
-                          <a href="/halsketten">Halsketten</a>
+                          <a href="halsketten">Halsketten</a>
                         </li>
                         <li className="hover:underline">
                           <a href="sets">Sets</a>
@@ -111,14 +130,14 @@ function MenuIcon(props) {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class={style}
+        className={style}
         viewBox="0 0 20 20"
         fill="currentColor"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         >
         </path>
       </svg>
@@ -132,7 +151,7 @@ function CartIcon(props) {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class={style}
+        className={style}
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -150,14 +169,14 @@ function HeartIcon(props) {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class={style}
+        className={style}
         viewBox="0 0 20 20"
         fill="currentColor"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         >
         </path>
       </svg>
