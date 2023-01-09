@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,9 @@ Route::get('/', function () {
 });
 
 Route::get('/ohrringe', function () {
-  return Inertia::render('Shop');
+  return Inertia::render('Shop',[
+  'phpVer' => "Siuuu",
+]);
 });
 
 Route::get('/ringe', function () {
